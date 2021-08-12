@@ -1,0 +1,7 @@
+#!/usr/bin/with-contenv bash
+
+echo "Starting dynamodb-admin ..."
+exec \
+    dynamodb-admin
+
+echo "Started - dynamodb-admin ui"

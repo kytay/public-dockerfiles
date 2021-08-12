@@ -1,0 +1,8 @@
+#!/usr/bin/with-contenv bash
+
+echo "Starting DynamoDB Local ..."
+
+exec \
+    java -Djava.library.path=/dynamodb/DynamoDBLocal_lib -jar /dynamodb/DynamoDBLocal.jar -sharedDb
+
+echo "Started - DynamoDB Local"
