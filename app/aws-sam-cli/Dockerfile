@@ -2,6 +2,7 @@ FROM ubuntu:focal
 
 # Environment for timezone setup
 ENV TZ=Asia/Singapore
+ENV SAM_CLI_TELEMETRY=0
 
 # Basic commands for ubuntu images
 # 1       - disable policy-rc.d , refer - https://stackoverflow.com/questions/46247032/how-to-solve-invoke-rc-d-policy-rc-d-denied-execution-of-start-when-building
@@ -15,6 +16,10 @@ apt-get install -y --no-install-recommends \
 curl ca-certificates apt-transport-https gnupg lsb-release \
 software-properties-common cron tar sudo tzdata \
 unzip iproute2
+
+# Include s6-overlay init system
+ADD https://github.com/just-containers/s6-overlay/releases/download/v2.2.0.1/s6-overlay-amd64-installer /tmp/
+RUN chmod +x /tmp/s6-overlay-amd64-installer && /tmp/s6-overlay-amd64-installer /
 
 # TimeZone Configuration
 RUN ln -snf /usr/share/zoneinfo/${TZ} /etc/localtime && \
