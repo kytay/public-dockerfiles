@@ -12,7 +12,7 @@ ENV TZ=Asia/Singapore
 RUN echo -e '#!/bin/bash \nexit 0' > /usr/sbin/policy-rc.d && \
 apt-get update && \
 apt-get install -y --no-install-recommends \
-curl ca-certificates apt-transport-https gnupg lsb-release
+curl ca-certificates apt-transport-https gnupg lsb-release tzdata
 
 # TimeZone Configuration
 RUN ln -snf /usr/share/zoneinfo/${TZ} /etc/localtime && \
