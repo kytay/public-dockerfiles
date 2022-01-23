@@ -20,8 +20,4 @@ dpkg-reconfigure --frontend noninteractive tzdata
 EXPOSE 53/tcp 53/udp
 VOLUME [ "/etc/dnsmasq.conf" ]
 
-# docker run --name dnsmasq \
-# --cap-add=NET_ADMIN --net=host \
-# -v $(pwd)/dnsmasq-sample.conf:/etc/dnsmasq.conf \
-# kytay/dnsmasq-focal
 CMD ["dnsmasq"]
