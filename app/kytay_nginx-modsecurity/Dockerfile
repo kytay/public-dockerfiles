@@ -43,10 +43,10 @@ liblua5.3-dev libfuzzy-dev libfuzzy2 libpcre2-dev \
 && cd nginx-1.23.3 \
 && ./configure \
 --conf-path=/etc/nginx/nginx.conf \
+--http-log-path=/var/log/nginx/access.log \
 --error-log-path=/var/log/nginx/error.log \
 --http-client-body-temp-path=/var/lib/nginx/body \
 --http-fastcgi-temp-path=/var/lib/nginx/fastcgi \
---http-log-path=/var/log/nginx/access.log \
 --http-proxy-temp-path=/var/lib/nginx/proxy \
 --http-scgi-temp-path=/var/lib/nginx/scgi \
 --http-uwsgi-temp-path=/var/lib/nginx/uwsgi \
