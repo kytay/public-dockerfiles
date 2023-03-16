@@ -81,6 +81,8 @@ liblua5.3-dev libfuzzy-dev libfuzzy2 libpcre2-dev \
 --add-dynamic-module=../ModSecurity-nginx \
 && make \
 && make install \
+&& mkdir -p /var/lib/nginx/body \
+&& ln -snf /usr/share/nginx/sbin/nginx /usr/local/bin/nginx \
 && apt-get remove -y $(dpkg-query -Wf '${Package}\n' | grep -e '-dev' | tr '\n' ' ') \
 && apt-get autoremove -y \
 && apt-get purge -y --auto-remove \
